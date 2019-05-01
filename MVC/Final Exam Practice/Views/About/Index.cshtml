@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Final_Exam_Practice.Models.About>
+
+@{
+    ViewBag.Title = "About";
+}
+
+<h1>About Sooners football.</h1>
+<h2>About the Univsersity of OKlahoma Football program</h2>
+
+@foreach(var a in Model)
+{
+    <div>OU FOotball is Coached by <b>@a.HeadCoach </b>. The Sooners have a bowl record of <b>@a.BowlRecord</b> and have <b>@a.NationalTitles</b> in their history.</div>
+}

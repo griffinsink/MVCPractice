@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Final_Exam_Practice.Models.FootballSchedule>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>OU Football Schedule for @Model.Count()</h2>
+
+<div>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Season)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opponent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsHomeGame)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Season)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opponent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsHomeGame)
+        </td>
+
+    </tr>
+}
+
+</div>
