@@ -2,43 +2,77 @@
 
 @{
     ViewBag.Title = "Index";
+
 }
 
-<h2>OU Football Schedule for @Model.Count()</h2>
+<h2>OU Football Schedule for @Model.First().Season </h2>
 
-<div>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Season)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Opponent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsHomeGame)
-        </th>
-        <th></th>
-    </tr>
+@foreach (var item in Model)
+{
+    if (item.IsHomeGame == true)
+    {
+        <div class="card" style="margin:5px; width: 200px; color: white; background-color: darkred; height: 255px; border-radius: 25px; border: 5px; float:left; padding:5px;">
+            <span class="glyphicon glyphicon-home" style="font-size:2em;"></span>
+            <div class="card-body">
+                @if (item.Opponent.Trim() == "Texas")
+                {
+                    <img src="https://www.thelostogle.com/wp-content/uploads/2010/02/texas-longhorn-logo-450x225.jpg"  style="width:100px; height:auto;"/>
+                }
+                <h2 class="card-title"> OU vs. @item.Opponent </h2>
+                <p class="card-text"> @item.Date.ToLongDateString()</p>
+            </div>
+        </div>
+    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Season)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Opponent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsHomeGame)
-        </td>
-
-    </tr>
+    if (item.IsHomeGame == false )
+    {
+        <div class="card" style=" margin:5px; width: 200px; color: white; background-color: black; height: 255px; border-radius: 25px; border: 5px; float:left; padding:5px; ">
+            <span class="glyphicon glyphicon-globe" style="font-size:2em;"></span>
+            <div class="card-body">
+                @if (item.Opponent.Trim() == "texas")
+                {
+                    <img src="https://www.thelostogle.com/wp-content/uploads/2010/02/texas-longhorn-logo-450x225.jpg" style="width:100px; height:auto;"/>
+                }
+                <h2 class="card-title"> OU vs. @item.Opponent </h2>
+                <p class="card-text"> @item.Date.ToLongDateString()</p>
+            </div>
+        </div>
+    }
 }
 
-</div>
+@*<div>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Season)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opponent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsHomeGame)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Season)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opponent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsHomeGame)
+            </td>
+
+        </tr>
+    }
+
+    </div>*@

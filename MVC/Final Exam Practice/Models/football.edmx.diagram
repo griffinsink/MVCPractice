@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a5c9cc5bb18043999ff39d1c6e44bbc2" Name="Diagram1">
-        <EntityTypeShape EntityType="DB_128040_practiceModel.FootballSchedule" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_128040_practiceModel.FootballSchedule" Width="3.125" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

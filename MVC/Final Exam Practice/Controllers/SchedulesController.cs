@@ -17,8 +17,8 @@ namespace Final_Exam_Practice.Controllers
         // GET: Schedules
         public ActionResult Index(int year=2019)
         {
-            var date = db.FootballSchedules.Include(d => d.Date).Take(year);
-            return View(db.FootballSchedules.ToList());
+            var date = db.FootballSchedules.Where(x => x.Season == year);
+            return View(date);
         }
 
         // GET: Schedules/Details/5
